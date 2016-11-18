@@ -5,10 +5,10 @@ services:
      container_name: db
      volumes:
        - "db-data:/var/lib/postgresql/data"
-   manifest:
-     build: ./manifest
+   web:
+     build: ./web
      volumes:
-       - ./manifest:/app
+       - ./web:/app
      ports:
        - "8000:8000"
      depends_on:
