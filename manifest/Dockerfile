@@ -1,4 +1,4 @@
-FROM python:2.7
+FROM python:3.5
 ENV PYTHONUNBUFFERED 1
 WORKDIR /app
 ADD requirements.txt /app/requirements.txt
