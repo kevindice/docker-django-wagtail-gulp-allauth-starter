@@ -40,7 +40,7 @@ PREREQ_APPS = [
 ]
 
 PROJECT_APPS = [
-    'manifest.users',
+    'manifest.user',
 ]
 
 INSTALLED_APPS = PREREQ_APPS + PROJECT_APPS
