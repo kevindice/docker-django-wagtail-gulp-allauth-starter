@@ -5,3 +5,7 @@
 - Clone this repository
 - `docker-compose build; docker-compose up;`
 - Make changes to the code, and rerun the above line to test your changes.
+
+## Todo:
+
+- Change environments (dev, prod, stage) at the Dockerfile level
