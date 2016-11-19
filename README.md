@@ -8,8 +8,7 @@
 
 ## Todo:
 
-- Change environments (dev, prod, stage) at the Dockerfile level
-
+- 
 
 ## Environments
 
