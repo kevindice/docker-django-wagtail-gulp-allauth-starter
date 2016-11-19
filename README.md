@@ -17,3 +17,8 @@
 - *prod* - `prod.yml`
 - *stage* - `stage.yml`
 
+So, to execute the app in the various environments:
+
+- *dev* - `docker-compose build; docker-compose up;`
+- *prod* - `docker-compose -f prod.yml build; docker-compose -f prod.yml up;`
+- *stage* - `docker-compose -f stage.yml build; docker-compose -f stage.yml up;`
