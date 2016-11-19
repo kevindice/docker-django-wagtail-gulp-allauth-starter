@@ -19,12 +19,14 @@ from django.conf import settings
 
 urlpatterns = []
 
+# Debug Toolbar
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [
         url(r'^__debug__/', include(debug_toolbar.urls)),
     ]
 
+# Normal URL Definition
 urlpatterns += [
     url(r'^admin/', admin.site.urls),
 ]
