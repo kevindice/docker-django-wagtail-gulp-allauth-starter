@@ -9,3 +9,11 @@
 ## Todo:
 
 - Change environments (dev, prod, stage) at the Dockerfile level
+
+
+## Environments
+
+- *dev* - `docker-compose.yml` (The default)
+- *prod* - `prod.yml`
+- *stage* - `stage.yml`
+
