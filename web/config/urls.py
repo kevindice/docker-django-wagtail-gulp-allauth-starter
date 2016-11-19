@@ -26,7 +26,13 @@ if settings.DEBUG:
         url(r'^__debug__/', include(debug_toolbar.urls)),
     ]
 
+#from django.http import HttpResponse
+#def out(a):
+#    return HttpResponse("Pizza")
+#urlpatterns += [url(r'^asdf$', out)]
+
 # Normal URL Definition
 urlpatterns += [
+    url('', include('social.apps.django_app.urls', namespace='social')),
     url(r'^admin/', admin.site.urls),
 ]
