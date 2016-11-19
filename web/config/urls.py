@@ -13,9 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.conf.urls import include, url
+from django.contrib import admin
 from django.conf import settings
+from django.contrib.auth import views as auth_views
+
+from ksupcapp.core import views as core_views
 
 urlpatterns = []
 
@@ -28,11 +31,14 @@ if settings.DEBUG:
 
 #from django.http import HttpResponse
 #def out(a):
-#    return HttpResponse("Pizza")
+#    return HttpResponse(settings.PROJECT_DIR)
 #urlpatterns += [url(r'^asdf$', out)]
 
 # Normal URL Definition
 urlpatterns += [
-    url('', include('social.apps.django_app.urls', namespace='social')),
+    url(r'^$', core_views.home, name='home'),
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
+    url(r'^oauth/', include('social.apps.django_app.urls', namespace='social')),
     url(r'^admin/', admin.site.urls),
 ]

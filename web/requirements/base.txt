@@ -1,6 +1,7 @@
 Django
 psycopg2
 gunicorn
+unipath
 
 # python-social-auth dependencies
 python-openid
