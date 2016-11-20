@@ -48,6 +48,7 @@ PREREQ_APPS = [
 
 PROJECT_APPS = [
     'social.apps.django_app.default',
+    'ksupcapp.core'
 ]
 
 INSTALLED_APPS = PREREQ_APPS + PROJECT_APPS
@@ -94,6 +95,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Social Authentication Backends and Config (python-social-auth)
 # https://simpleisbetterthancomplex.com/tutorial/2016/10/24/how-to-add-social-login-to-django.html
 AUTHENTICATION_BACKENDS = [
+    'social.backends.github.GithubOAuth2',
+    'social.backends.twitter.TwitterOAuth',
     'social.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 ]
