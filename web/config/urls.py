@@ -16,8 +16,11 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
+from django.views.generic.base import TemplateView
 
 from ksupcapp.core import views as core_views
+
+admin.autodiscover()
 
 urlpatterns = []
 
@@ -35,7 +38,8 @@ if settings.DEBUG:
 
 # Normal URL Definition
 urlpatterns += [
-    url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^$', core_views.home, name='home'),
+    url(r'^accounts/profile/$', TemplateView.as_view(template_name='profile.html')),
+    url(r'^admin/', admin.site.urls),
 ]
