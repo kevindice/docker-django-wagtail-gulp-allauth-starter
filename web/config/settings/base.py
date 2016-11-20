@@ -47,7 +47,6 @@ PREREQ_APPS = [
 ]
 
 PROJECT_APPS = [
-    'social.apps.django_app.default',
     'ksupcapp.core'
 ]
 
@@ -61,8 +60,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -80,10 +77,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
-                # python-social-auth
-                'social.apps.django_app.context_processors.backends',
-                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -91,38 +84,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
-# Social Authentication Backends and Config (python-social-auth)
-# https://simpleisbetterthancomplex.com/tutorial/2016/10/24/how-to-add-social-login-to-django.html
-AUTHENTICATION_BACKENDS = [
-    'social.backends.github.GithubOAuth2',
-    'social.backends.twitter.TwitterOAuth',
-    'social.backends.facebook.FacebookOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-]
-
-SOCIAL_AUTH_URL_NAMESPACE = 'social'
-SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'first_name', 'email']
-
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'home'
-
-SOCIAL_AUTH_LOGIN_ERROR_URL = '/settings/'
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/settings/'
-SOCIAL_AUTH_RAISE_EXCEPTIONS = False
-
-  # Github
-SOCIAL_AUTH_GITHUB_KEY = Secret.SOCIAL_AUTH_GITHUB_KEY
-SOCIAL_AUTH_GITHUB_SECRET = Secret.SOCIAL_AUTH_GITHUB_SECRET
-
-  # Twitter
-SOCIAL_AUTH_TWITTER_KEY = Secret.SOCIAL_AUTH_TWITTER_KEY
-SOCIAL_AUTH_TWITTER_SECRET = Secret.SOCIAL_AUTH_TWITTER_SECRET
-
-  # Facebook
-SOCIAL_AUTH_FACEBOOK_KEY = Secret.SOCIAL_AUTH_FACEBOOK_KEY
-SOCIAL_AUTH_FACEBOOK_SECRET = Secret.SOCIAL_AUTH_FACEBOOK_SECRET
 
 
 # Database
