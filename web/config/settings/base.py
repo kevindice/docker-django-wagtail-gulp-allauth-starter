@@ -92,6 +92,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Social Authentication Backends and Config (python-social-auth)
+# https://simpleisbetterthancomplex.com/tutorial/2016/10/24/how-to-add-social-login-to-django.html
 AUTHENTICATION_BACKENDS = [
     'social.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
@@ -103,6 +104,16 @@ SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'first_name', 'email']
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = 'home'
+
+  # Github
+SOCIAL_AUTH_GITHUB_KEY = Secret.SOCIAL_AUTH_GITHUB_KEY
+SOCIAL_AUTH_GITHUB_SECRET = Secret.SOCIAL_AUTH_GITHUB_SECRET
+
+  # Twitter
+
+
+  # Facebook
+
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
