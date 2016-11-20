@@ -104,6 +104,15 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+#ACCOUNT_EMAIL_SUBJECT_PREFIX = ""
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
+ACCOUNT_USERNAME_BLACKLIST = []
+
+
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
