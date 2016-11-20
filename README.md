@@ -25,3 +25,7 @@ So, to execute the app in the various environments:
 Each of these environments corresponds to a settings file `web/config/settings/**environment name**.py` and a requirements.txt-style list of dependencies `web/ksupcapp/requirements/**environment name**.txt`.
 
 For global dependencies, use `web/ksupcapp/requirements/base.txt`, and for global settings, use `web/config/settings/base.py`.
+
+## Notes
+
+- While many types of third-party logins will eventually be available, we will require a user to sign up with either Facebook or our site's native account system first.  **Only then** will linking with Instagram, Twitter, etc. be allowed.
