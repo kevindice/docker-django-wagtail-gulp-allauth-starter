@@ -36,5 +36,6 @@ if settings.DEBUG:
 # Normal URL Definition
 urlpatterns += [
     url(r'^admin/', admin.site.urls),
+    url(r'^accounts/', include('allauth.urls')),
     url(r'^$', core_views.home, name='home'),
 ]
