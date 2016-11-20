@@ -36,9 +36,11 @@ if settings.DEBUG:
 
 # Normal URL Definition
 urlpatterns += [
+    url(r'^admin/', admin.site.urls),
     url(r'^$', core_views.home, name='home'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^oauth/', include('social.apps.django_app.urls', namespace='social')),
-    url(r'^admin/', admin.site.urls),
+    url(r'^settings/$', core_views.settings, name='settings'),
+    url(r'^settings/password/$', core_views.password, name='password'),
 ]
