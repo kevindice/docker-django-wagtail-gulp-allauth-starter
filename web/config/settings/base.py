@@ -53,7 +53,6 @@ STOCK_APPS = [
 ]
 
 OTHER_APPS = [
-    'phonenumber_field'
 ]
 
 SOCIAL_APPS = [

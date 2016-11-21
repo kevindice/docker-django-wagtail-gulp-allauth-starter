@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from phonenumber_field.modelfields import PhoneNumberField
 
 HOME='HP'
 CELL='CP'
@@ -17,15 +16,19 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     birthdate = models.DateField()
 
+    def __str__(self):
+        return self.user.username + '\'s profile'
+
 # Each person has 0 or more phone numbers
 class Phone(models.Model):
-    phone_number = PhoneNumberField()
+    phone_number = models.CharField(max_length=12)
     type = models.CharField(
         max_length=2,
         choices=PHONE_NUMBER_TYPE_CHOICES,
         default=CELL
     )
-    user = models.ForeignKey(User)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+
 
     def __str__(self):
-        return self.user.username + '\'s Profile'
+        return self.profile.user.username + '\'s ' + (self.get_type_display() + ' Phone Number').lower()
