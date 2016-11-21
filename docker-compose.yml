@@ -27,7 +27,7 @@ services:
        - ENV=dev
      command: sh -c "npm -q install && gulp watch"
      volumes:
-       - ./web/ksupcapp/static:/static
+       - ./web/ksupcapp:/ksupcapp
        - ./frontend:/src
        - node-modules:/src/node_modules
        - bower-components:/src/bower_components

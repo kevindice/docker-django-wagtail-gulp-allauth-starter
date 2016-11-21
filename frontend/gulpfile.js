@@ -13,8 +13,8 @@ var dev = (env === "dev");
 
 var paths = {
     out: {
-        css: '/static/css',
-        js: '/static/js'
+        css: '/ksupcapp/core/static/css',
+        js: '/ksupcapp/core/static/js'
     },
     in: {
         foundationSass: '/src/bower_components/foundation-sites/scss',

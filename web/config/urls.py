@@ -27,8 +27,10 @@ urlpatterns = []
 # Debug Toolbar
 if settings.DEBUG:
     import debug_toolbar
+    from django.contrib.staticfiles import views as staticviews
     urlpatterns += [
         url(r'^__debug__/', include(debug_toolbar.urls)),
+        url(r'^static/(?P<path>.*)$', staticviews.serve),
     ]
 
 #from django.http import HttpResponse

@@ -21,7 +21,9 @@ BASE_DIR = Path(__file__).ancestor(3)
 MEDIA_ROOT = BASE_DIR.child("ksupcapp").child("media");
 STATIC_ROOT = BASE_DIR.child("ksupcapp").child("static");
 STATICFILES_DIRS = [
-
+    STATIC_ROOT.child("css"),
+    STATIC_ROOT.child("js"),
+    STATIC_ROOT.child("images"),
 ]
 
 
