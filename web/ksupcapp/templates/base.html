@@ -87,20 +87,6 @@
 </header>
 
 
-
-<div>
-    <strong>Menu:</strong>
-    <ul>
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
-        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-        {% else %}
-        <li><a href="{% url 'account_login' %}">Sign In</a></li>
-        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
-        {% endif %}
-    </ul>
-</div>
-
 <footer class="footer">
   <div class="row">
     <div class="small-12 medium-6 large-5 columns">
