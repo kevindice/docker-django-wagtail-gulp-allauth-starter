@@ -37,18 +37,13 @@ if settings.DEBUG:
         url(r'^static/(?P<path>.*)$', staticviews.serve),
     ]
 
-#from django.http import HttpResponse
-#def out(a):
-#    return HttpResponse(settings.PROJECT_DIR)
-#urlpatterns += [url(r'^asdf$', out)]
-
 # Normal URL Definition
 urlpatterns += [
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^cms/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^$', core_views.home, name='home'),
     url(r'^accounts/profile/$', TemplateView.as_view(template_name='profile.html'), name='account_profile'),
     url(r'^admin/', admin.site.urls),
+    url(r'^cms/', include(wagtailadmin_urls)),
     url(r'', include(wagtail_urls)), # This must be last so that it does not override more specific regexes
 ]
