@@ -74,3 +74,37 @@ class JumperProfile(models.Model):
         blank=True,
     )
 
+class Rating(models.Model):
+    jumper = models.ForeignKey(
+        JumperProfile,
+        on_delete=models.CASCADE
+    )
+    type = models.CharField(
+        max_length=5,
+        choices=(
+            ('Coach', (
+                ('C', 'Coach'),
+            )),
+            ('Instructor', (
+                ('SLI', 'Static Line Instructor'),
+                ('IADI', 'Instructor Assisted Deployment Instructor'),
+                ('AFFI', 'Accelerated Free Fall Instructor'),
+                ('TI', 'Tandem Instructor'),
+            )),
+            ('Instructor Examiner', (
+                ('CIE', 'Coach Examiner'),
+                ('SLIE', 'Static Line Instructor Examiner'),
+                ('IADIE', 'Instructor Assisted Deployment Instructor'),
+                ('AFFI', 'Accelerated Free Fall Instructor'),
+                ('TIE', 'Tandem Instructor Examiner'),
+            )),
+            ('Safety and Training Advisor', (
+                ('STA', 'Safety and Training Advisor'),
+            )),
+            ('Pro', (
+                ('PRO', 'Pro')
+            )),
+        )
+    )
+    expiration_date = models.DateField()
+    verified = models.BooleanField(default=False)
