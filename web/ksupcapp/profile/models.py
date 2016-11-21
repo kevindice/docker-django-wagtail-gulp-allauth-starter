@@ -12,7 +12,7 @@ PHONE_NUMBER_TYPE_CHOICES = (
     (OTHER, 'Other')
 )
 
-class Profile(models.Model):
+class Person(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -26,8 +26,8 @@ class Phone(models.Model):
         choices=PHONE_NUMBER_TYPE_CHOICES,
         default=CELL
     )
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    person = models.ForeignKey(Person, on_delete=models.CASCADE)
 
 
     def __str__(self):
-        return self.profile.user.username + '\'s ' + (self.get_type_display() + ' Phone Number').lower()
+        return self.person.user.username + '\'s ' + (self.get_type_display() + ' Phone Number').lower()
