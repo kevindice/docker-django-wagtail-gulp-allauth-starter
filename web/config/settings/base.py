@@ -42,7 +42,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-PREREQ_APPS = [
+STOCK_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,6 +50,10 @@ PREREQ_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+]
+
+OTHER_APPS = [
+    'phonenumber_field'
 ]
 
 SOCIAL_APPS = [
@@ -81,7 +85,7 @@ PROJECT_APPS = [
     'ksupcapp.profile'
 ]
 
-INSTALLED_APPS = PREREQ_APPS + SOCIAL_APPS + WAGTAIL_APPS + PROJECT_APPS
+INSTALLED_APPS = STOCK_APPS + SOCIAL_APPS + WAGTAIL_APPS + PROJECT_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -190,3 +194,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+
+# User Profile Related Stuff
+
+PHONENUMBER_DB_FORMAT = 'E164'
