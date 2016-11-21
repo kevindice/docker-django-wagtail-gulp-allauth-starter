@@ -23,7 +23,9 @@ services:
      build:
        context: .
        dockerfile: ./frontend/Dockerfile
-     command: gulp
+       args:
+         env: dev
+     command: npm install -q & gulp watch
      volumes:
        - ./web/ksupcapp/static:/static
        - ./frontend:/src
