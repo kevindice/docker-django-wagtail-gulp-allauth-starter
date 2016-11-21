@@ -25,7 +25,7 @@ services:
        dockerfile: ./frontend/Dockerfile
        args:
          env: dev
-     command: npm install -q & gulp watch
+     command: sh -c "npm -q install && gulp watch"
      volumes:
        - ./web/ksupcapp/static:/static
        - ./frontend:/src
