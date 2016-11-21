@@ -74,6 +74,9 @@ class JumperProfile(models.Model):
         blank=True,
     )
 
+    def __str__(self):
+        return self.person.user.username
+
 class Rating(models.Model):
     jumper = models.ForeignKey(
         JumperProfile,
@@ -102,9 +105,30 @@ class Rating(models.Model):
                 ('STA', 'Safety and Training Advisor'),
             )),
             ('Pro', (
-                ('PRO', 'Pro')
-            )),
+                ('PRO', 'Pro'),
+            ))
         )
     )
     expiration_date = models.DateField()
     verified = models.BooleanField(default=False)
+
+
+class License(models.Model):
+    jumper = models.ForeignKey(
+        JumperProfile,
+        on_delete=models.CASCADE
+    )
+    type = models.CharField(
+        max_length=1,
+        choices=(
+            ('A', 'A'),
+            ('B', 'B'),
+            ('C', 'C'),
+            ('D', 'D'),
+        ),
+    )
+    number = models.PositiveIntegerField()
+    verified = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.type + '-' + str(self.number)
