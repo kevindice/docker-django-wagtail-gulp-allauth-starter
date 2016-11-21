@@ -8,7 +8,7 @@ var gulp = require('gulp'),
     pixrem = require('gulp-pixrem'),
     runSequence = require('run-sequence');
 
-var env = process.env.env;
+var env = process.env.ENV;
 var dev = (env === "dev");
 
 var paths = {
