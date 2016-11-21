@@ -14,7 +14,6 @@ PHONE_NUMBER_TYPE_CHOICES = (
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    birthdate = models.DateField()
 
     def __str__(self):
         return self.user.username + '\'s profile'
