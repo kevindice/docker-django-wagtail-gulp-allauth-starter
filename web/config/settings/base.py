@@ -77,7 +77,8 @@ WAGTAIL_APPS = [
 ]
 
 PROJECT_APPS = [
-    'ksupcapp.core'
+    'ksupcapp.core',
+    'ksupcapp.profile'
 ]
 
 INSTALLED_APPS = PREREQ_APPS + SOCIAL_APPS + WAGTAIL_APPS + PROJECT_APPS
