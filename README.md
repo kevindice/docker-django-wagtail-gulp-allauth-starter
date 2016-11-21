@@ -10,6 +10,15 @@
 
 - 
 
+## Wishlist:
+
+- [Wagtail](https://wagtail.io/) for managing news postings and images
+- Paypal integration for keeping accouts paid up
+- Instagram - schedule posts
+- Twitter - tweet on news post
+- Facebook - post in FB group & FB page on news post
+
+
 ## Environments (dependencies and settings)
 
 - *dev* - `docker-compose.yml` (The default)
