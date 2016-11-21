@@ -15,6 +15,7 @@ from unipath import Path
 from .secret import Secret
 
 SITE_ID = 1
+WAGTAIL_SITE_NAME = "Skydive K-State"
 
 # We are building our relative paths with unipath
 BASE_DIR = Path(__file__).ancestor(3)
@@ -51,17 +52,35 @@ PREREQ_APPS = [
     'django.contrib.sites',
 ]
 
-PROJECT_APPS = [
+SOCIAL_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
+]
 
+WAGTAIL_APPS = [
+    'wagtail.wagtailforms',
+    'wagtail.wagtailredirects',
+    'wagtail.wagtailembeds',
+    'wagtail.wagtailsites',
+    'wagtail.wagtailusers',
+    'wagtail.wagtailsnippets',
+    'wagtail.wagtaildocs',
+    'wagtail.wagtailimages',
+    'wagtail.wagtailsearch',
+    'wagtail.wagtailadmin',
+    'wagtail.wagtailcore',
 
+    'modelcluster',
+    'taggit',
+]
+
+PROJECT_APPS = [
     'ksupcapp.core'
 ]
 
-INSTALLED_APPS = PREREQ_APPS + PROJECT_APPS
+INSTALLED_APPS = PREREQ_APPS + SOCIAL_APPS + WAGTAIL_APPS + PROJECT_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -71,6 +90,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'wagtail.wagtailcore.middleware.SiteMiddleware',
+    'wagtail.wagtailredirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
