@@ -47,7 +47,7 @@ normalpatterns = [
 # Auth-Related
 authpatterns = [
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^accounts/profile/$', TemplateView.as_view(template_name='profile.html'), name='account_profile'),
+    url(r'^profile/$', TemplateView.as_view(template_name='profile.html'), name='account_profile'),
 ]
 
 wagtailpatterns = [

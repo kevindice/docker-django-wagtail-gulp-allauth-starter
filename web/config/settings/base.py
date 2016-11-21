@@ -136,7 +136,7 @@ ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 ACCOUNT_USERNAME_BLACKLIST = []
 
-
+LOGIN_REDIRECT_URL = '/profile'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
