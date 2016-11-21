@@ -19,6 +19,19 @@ services:
        - "8000:8000"
      depends_on:
        - db
+   frontend:
+     build:
+       context: .
+       dockerfile: ./frontend/Dockerfile
+     command: gulp
+     volumes:
+       - ./web/ksupcapp/static:/static
+       - ./frontend:/src
+       - node-modules:/src/node_modules
+       - bower-components:/src/bower_components
+
 
 volumes:
   db-data:
+  node-modules:
+  bower-components:
