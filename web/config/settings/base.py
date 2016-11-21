@@ -18,8 +18,8 @@ SITE_ID = 1
 
 # We are building our relative paths with unipath
 BASE_DIR = Path(__file__).ancestor(3)
-MEDIA_ROOT = BASE_DIR.child("media");
-STATIC_ROOT = BASE_DIR.child("static");
+MEDIA_ROOT = BASE_DIR.child("ksupcapp").child("media");
+STATIC_ROOT = BASE_DIR.child("ksupcapp").child("static");
 STATICFILES_DIRS = [
 
 ]
