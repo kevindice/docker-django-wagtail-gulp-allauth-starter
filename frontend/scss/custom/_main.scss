@@ -1,0 +1,98 @@
+$purple: #582C83;
+
+body{
+    background: url('/static/images/body-bg.png');
+}
+
+.content-header{
+    background: #292c2f;
+
+    h1{
+        color: black;
+        background: $gold;
+        display: inline-block;
+        margin-bottom: 0;
+        margin-right: 2px;
+        padding-left: 1rem;
+        @include breakpoint(medium){
+            font-size: 2.4rem;
+        }
+        @include breakpoint(large){
+            font-size: 2.4rem;
+        }
+
+        &::after{
+            content: ' ';
+            position: absolute;
+            display: inline-block;
+	        border-top: 0.7em solid transparent;
+	        border-bottom: 0.7em solid transparent;
+	        border-left:0.6em solid $gold;
+        }
+    }
+}
+
+.blog-post{
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    &:not(:last-child){
+        border-bottom: 1px solid rgba(171, 171, 171, 0.41);
+    }
+    date{
+        font-size: 1.55rem;
+        color: #cacaca;
+        font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
+    }
+    author{
+        font-style: oblique;
+        &:before{
+            content: "Posted By: "
+        }
+    }
+}
+
+.content-panel{
+    background: #dcdcdc;
+    margin-top: 2rem;
+    padding: 1rem;
+    box-shadow: -3px 3px 15px rgba(0,0,0,0.35);
+    h2, h3{
+        border-bottom: 1px solid rgba(171, 171, 171, 0.41);
+    }
+    a:not(.button, .accordion-title, .tabs-title){
+        color: $purple;
+        text-decoration: underline;
+        &:hover{
+            color: lighten($purple, 30%);
+        }
+    }
+}
+
+.button, a.button{
+    background-color: $gold;
+    color: black;
+    &:hover{
+        background-color: darken($gold, 5%);
+    }
+}
+
+.contact-bar{
+    background: #582C83;
+    width: 16em;
+    font-size: 1.4rem;
+    color: white;
+    padding: 0.6rem;
+    text-align: center;
+    margin: 1rem auto 1rem auto;
+    border: solid #582C83;
+    border-radius: 4rem;
+    @include breakpoint(small){
+        font-size: 1.2rem;
+    }
+}

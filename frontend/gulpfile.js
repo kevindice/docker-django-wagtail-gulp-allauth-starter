@@ -34,9 +34,9 @@ gulp.task('styles', function () {
     var x = gulp.src(paths.in.scss + '/project.scss')
         .pipe(sass({
             includePaths: [
-                paths.in.sassFoundation,
-                paths.in.sassMotionUI,
-                paths.in.sassCustom
+                paths.in.foundationSass,
+                paths.in.motionUISass,
+                paths.in.customSass
             ]
         }).on('error', sass.logError))
         .pipe(plumber()) // Checks for errors
@@ -68,5 +68,6 @@ gulp.task('default', function () {
 
 gulp.task('watch', ['default'], function(){
     gulp.watch(paths.in.scss + '/*.scss', ['styles']);
+    gulp.watch(paths.in.scss + '/custom/*.scss', ['styles']);
     gulp.watch(paths.in.js + '/*.js', ['scripts']);
 });

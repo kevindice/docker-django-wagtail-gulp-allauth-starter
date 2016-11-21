@@ -1,0 +1,29 @@
+ul.tabs{
+  background: #292c2f;
+}
+
+.tabs-title{
+  background: $purple;
+  
+  &>a{
+    color: white;
+    &:hover{
+      color: white;
+      background: lighten($purple, 10%);
+    }
+  }
+
+  &.is-active{
+    background: darken($purple, 10%);
+    a{
+      color: white;
+      background: lighten($purple, 5%);
+      box-shadow: inset 0px 0px 10px 5px rgba(0,0,0,0.3);
+    }
+  }
+}
+
+
+.accordion-title{
+  font-size: inherit;
+}

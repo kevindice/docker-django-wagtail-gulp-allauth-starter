@@ -1,0 +1,53 @@
+#spacer{
+    background: #582C83;
+    height: 130px;
+    margin: 0 0 -130px 0;
+    width: 100%;
+}
+
+#hero{
+    background: #c4c4c4;
+    width: 90%;
+    position: relative;
+    top: -10px;
+    margin: -10px auto 0px auto;
+    box-shadow: -10px -10px 50px black;
+    color: black;
+    border: 6px dotted #b8b8b8;
+    padding: 20px;
+    .button{
+        background: $gold;
+        color: black;
+        max-width: 600px;
+        margin-right: auto;
+        margin-left: auto;
+        &:hover{
+            background: darken($gold, 10%);
+        }
+    }
+}
+
+@include breakpoint(medium){
+    #spacer{
+        height: 130px;
+        margin: 0 0 -130px 0;
+    }
+    #hero{
+        top: -30px;
+        margin: -30px auto 0px auto;
+        box-shadow: -10px -10px 50px black;
+    }
+}
+
+@include breakpoint(large){
+    #spacer{
+        height: 130px;
+        margin: 0 0 -130px 0;
+    }
+
+    #hero{
+        top: -30px;
+        margin: -30px auto 0px auto;
+        box-shadow: -10px -10px 50px black;
+    }
+}
