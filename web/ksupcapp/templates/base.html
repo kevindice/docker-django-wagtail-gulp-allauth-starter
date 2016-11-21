@@ -9,6 +9,7 @@
     <!--<meta name="theme-color" content="#febd15">-->
     <meta name="description" content="The web application of the K-State Parachute Club">
     <meta name="author" content="Kevin Dice">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico'%}"/>
     <!--[if lt IE 9]>
       <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -25,19 +26,67 @@
 <body>
 {% block body %}
 
-<em>Important: Authentication via OAuth based providers will not work until you <a
-        href="/admin/socialaccount/socialapp/">setup proper applicaton credentials</a>.</em>
+<div class="top-bar-title">Skydive K-State</div>
 
-{% if messages %}
-<div>
-    <strong>Messages:</strong>
-    <ul>
-        {% for message in messages %}
-        <li>{{message}}</li>
-        {% endfor %}
-    </ul>
+<div data-responsive-toggle="main-menu" data-hide-for="large" class="title-bar">
+    <button type="button" data-toggle="" class="menu-icon"></button>
+    <div class="title-bar-title">Menu</div>
 </div>
+
+<div id="main-menu" class="top-bar">
+    <div class="top-bar-left">
+        <ul class="menu vertical large-horizontal menu menu-items" data-responsive-menu="drilldown large-dropdown">
+            <li class="menu-text">Skydive K-State</li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'account_profile' %}">My Profile</a></li>
+            <li><a href="{% url 'account_logout' %}">Sign out</a></li>
+            {% else %}
+            <li><a id="sign-up-link" href="{% url 'account_signup' %}">Sign Up</a></li>
+            <li><a id="log-in-link" href="{% url 'account_login' %}">Sign In</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+
+<!-- messages -->
+{% if messages %}
+{% for message in messages %}
+<div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+{% endfor %}
 {% endif %}
+
+
+{% block contentHeader %}
+{% endblock %}
+
+
+<!-- main content area -->
+<div class="row">
+    <div class="small-12 medium-12 large-12">
+        <div class="content-panel">
+
+            {% block content %}
+            <p>Use this document as a way to quick start any new project.</p>
+            {% endblock content %}
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<header id="footer-hero">
+    <img src="{% static 'images/footer.jpg' %}">
+</header>
+
+
 
 <div>
     <strong>Menu:</strong>
@@ -51,9 +100,76 @@
         {% endif %}
     </ul>
 </div>
-{% block content %}
-{% endblock %}
-{% endblock %}
+
+<footer class="footer">
+  <div class="row">
+    <div class="small-12 medium-6 large-5 columns">
+      <p class="logo float-center"><img class="float-center" src="{% static 'images/ksupc-logo.png' %}" /></p>
+      <ul class="footer-links">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="#">First Jump</a></li>
+        <li><a href="#">Static Line</a></li>
+        <li><a href="#">Tandem</a></li>
+        <li><a href="#">License</a></li>
+        <li><a href="#">Experienced</a></li>
+<!--        <li><a href="/about">About</a></li> -->
+        <li><a href="#">Minutes</a></li>
+        <li><a href="#">Pricing</a></li>
+<!--        <li><a href="/gallery">Gallery</a></li>   -->
+<!--        <li><a href="/club-history">History</a></li>  -->
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <p class="copywrite show-for-large"> ©2016 Kansas State University Parachute Club</p>
+      <hr class="show-for-small-only" />
+    </div>
+    <div class="small-12 medium-6 large-4 columns">
+      <ul class="contact">
+        <li>
+          <p><i class="fi-marker"></i>Abilene Municipal Airport<br> 801 S Washington St<br> Abilene, KS 67410</p>
+        </li>
+        <li>
+          <p><i class="fi-telephone"></i>+1-785-655-0066<br>(Voicemail Only)</p>
+        </li>
+        <li>
+          <p><i class="fi-mail"></i>info@skydivekstate.com</p>
+        </li>
+      </ul>
+      <hr class="show-for-small-only" />
+    </div>
+    <div class="small-12 medium-12 large-3 columns">
+      <p class="about">About KSUPC</p>
+      <p class="about subheader">KSUPC is a non-profit organization dedicated to the safe enjoyment and advancement of skydiving among K-State students, faculty, staff, and members of the surrounding community.</p>
+      <ul class="inline-list social"><a href="https://www.facebook.com/skydive.kstate/"><i class="fi-social-facebook"></i></a><a href="https://plus.google.com/105525665285470211327"><i class="fi-social-google-plus"></i></a><a href="http://youtube.com/user/KStateParachuteClub"><i class="fi-social-youtube"></i></a></ul>
+      <p
+        class="copywrite hide-for-large"> ©2016 Kansas State University Parachute Club</p>
+    </div>
+  </div>
+</footer>
+
+{% block modal %}{% endblock modal %}
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    {% block javascript %}
+      <!-- Required by Bootstrap v4 Alpha 3 -->
+      <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js" integrity="sha256-orE03LSc9KVys7WmCWaOa5LauIvfUpJeaiKbggQBB+8=" crossorigin="anonymous"></script>
+
+      <!-- Your stuff: Third-party javascript libraries go here -->
+
+      <!-- place project specific Javascript in this file -->
+
+      <script src="{% static 'js/project.js' %}"></script>
+
+
+    {% endblock javascript %}
+
+{% endblock %}<!-- end body block -->
+
+
 {% block extra_body %}
 {% endblock %}
 </body>

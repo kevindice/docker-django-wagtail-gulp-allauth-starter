@@ -42,6 +42,6 @@ if settings.DEBUG:
 urlpatterns += [
     url(r'^accounts/', include('allauth.urls')),
     url(r'^$', core_views.home, name='home'),
-    url(r'^accounts/profile/$', TemplateView.as_view(template_name='profile.html')),
+    url(r'^accounts/profile/$', TemplateView.as_view(template_name='profile.html'), name='account_profile'),
     url(r'^admin/', admin.site.urls),
 ]
