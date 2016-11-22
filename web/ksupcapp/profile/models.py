@@ -20,6 +20,20 @@ class Person(models.Model):
         null=True,
         blank=True,
     )
+    # On the fence about keeping this model
+    # If we add first and last name to this, it would be useful as a basis for the signup form
+    # ...doing so would require keeping these duplicated fields from the two models in sync...not that hard really.
+    #
+    # Unfortunately, email addresses are attached to the allauth models, and it would be excessive to make
+    # people sign up for an account if all they want to do is sign up for a tandem, first jump course, or just
+    # express interest with a very non-commital interest form.
+    #
+    # Possible situation
+    #  - Someone expresses interest, creating a Person entry which has their first_name and last_name
+    #  - They later sign up with the auth system
+    #  - Need to match their signup with their existing Person entry
+    #
+    #
 
     def __str__(self):
         return self.user.username + '\'s profile'
