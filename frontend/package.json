@@ -1,13 +1,13 @@
 {
   "name": "ksupcapp",
   "version": "1.0.0",
-  "description": "",
+  "description": "The frontend dependencies for the Skydive K-State Web App",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kevin Dice",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "dependencies": {
     "bower": "1.8.0",
     "gulp": "3.9.1",
